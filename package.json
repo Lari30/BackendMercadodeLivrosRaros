@@ -1,0 +1,25 @@
+{
+  "name": "backendmercadodelivrosraros",
+  "version": "1.0.0",
+  "description": "Projeto Backend Trabalho Final PPI",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lari30/BackendMercadodeLivrosRaros.git"
+  },
+  "keywords": [
+    "Backend",
+    "Node",
+    "Javascript",
+    "Mysql"
+  ],
+  "author": "Larissa Santos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lari30/BackendMercadodeLivrosRaros/issues"
+  },
+  "homepage": "https://github.com/Lari30/BackendMercadodeLivrosRaros#readme"
+}
