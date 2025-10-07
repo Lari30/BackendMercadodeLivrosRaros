@@ -8,9 +8,11 @@ export default async function conectar() {
     else{
         global.poolConexoes = mysql.createPool({
             
-            host: 'localhost',
+            host: '127.0.0.1',
+            port: 3306,
             user: 'root',
-            database: 'backendmercadodelivrosraros.clientes',
+            password: 'ls081189',
+            database: 'backendmercadodelivrosraros',
             waitForConnections: true,
             connectionLimit: 10,
             maxIdle: 10, // max idle connections, the default value is the same as `connectionLimit`

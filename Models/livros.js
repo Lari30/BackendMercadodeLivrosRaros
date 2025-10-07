@@ -1,97 +1,70 @@
 import LivrosDAO from "../DB/livroDAO.js";
 export default class Livros{
-    #id 
-    #titulo
-    #autor
-    #anoPublicacao
-    #editora
-    #genero
-    #descricao
-    #preco
-    #raridade
-    #dataCadastro
+    #id; 
+    #titulo;
+    #autor;
+    #anoPublicacao;
+    #editora;
+    #genero;
+    #descricao;
+    #preco;
+    #raridade;
+    #dataCadastro;
 
-    get id() {
-        return this.#id;
-    }
-    set id(id) {
-        this.#id = id;
-    }
+    constructor(id, titulo, autor, anoPublicacao, editora, genero, descricao, preco, raridade, dataCadastro = new Date()) {
+    this.#id = id;
+    this.#titulo = titulo;
+    this.#autor = autor;
+    this.#anoPublicacao = anoPublicacao;
+    this.#editora = editora;
+    this.#genero = genero;
+    this.#descricao = descricao;
+    this.#preco = preco;
+    this.#raridade = raridade;
+    this.#dataCadastro = dataCadastro;
+  }
 
-    get titulo() {
-        return this.#titulo;
-    }
-    set titulo(titulo) {
-        this.#titulo = titulo;
-    }
+    get id() {return this.#id;}
+    set id(id) {this.#id = id;}
 
-    get autor() {
-        return this.#autor;
-    }
-    set autor(autor) {
-        this.autor = autor;
-    }
+    get titulo() { return this.#titulo;}
+    set titulo(titulo) {this.#titulo = titulo;}
 
-    get anoPublicacao() {
-        return this.#anoPublicacao;
-    }
-    set anoPublicacao(anoPublicacao) {
-        this.#anoPublicacao = anoPublicacao;
-    }
+    get autor() {return this.#autor;}
+    set autor(autor) { this.#autor = autor;}
 
-    get editora() {
-        return this.#editora;
-    }
-    set editora(editora) {
-        this.#editora = editora;
-    }
+    get anoPublicacao() {return this.#anoPublicacao;}
+    set anoPublicacao(anoPublicacao) {this.#anoPublicacao = anoPublicacao;}
 
-    get genero() {
-        return this.#genero;
-    }
-    set genero(genero) {
-        this.#genero = genero;
-    }
+    get editora() {return this.#editora;}
+    set editora(editora) {this.#editora = editora;}
 
-    get descricao() {
-        return this.#descricao;
-    }
-    set descricao(descricao) {
-        this.#descricao = descricao;
-    }
+    get genero() {return this.#genero;}
+    set genero(genero) {this.#genero = genero;}
 
-    get preco() {
-        return this.#preco;
-    }
-    set preco(preco) {
-        this.#preco = preco;
-    }
+    get descricao() {return this.#descricao;}
+    set descricao(descricao) {this.#descricao = descricao;}
 
-    get raridade() {
-        return this.#raridade;
-    }
-    set raridade(raridade) {
-        this.#raridade = raridade;
-    }
+    get preco() {return this.#preco;}
+    set preco(preco) {this.#preco = preco;}
 
-    get dataCadastro() {
-        return this.#dataCadastro;
-    }
-    set dataCadastro(dataCadastro) {
-        this.#dataCadastro = dataCadastro;
-    }
+    get raridade() {return this.#raridade;}
+    set raridade(raridade) {this.#raridade = raridade;}
 
-    toString(){
+    get dataCadastro() {return this.#dataCadastro;}
+    set dataCadastro(dataCadastro) {this.#dataCadastro = dataCadastro;}
+
+    toJSON(){
         return {
             id: this.#id,
-            Título: this.#titulo,
+            titulo: this.#titulo,
             Autor: this.#autor,
             AnoPublicação: this.#anoPublicacao,
             Editora: this.#editora,
             Gênero: this.#genero,
             Descrição: this.#descricao,
             Preço: this.#preco,
-            Raridade: this.#raridade
+            Raridade: this.#raridade,
             dataCadastro: this.#dataCadastro
         }
     }
@@ -110,7 +83,7 @@ export default class Livros{
     }
     async consultar(){
         const livroDAO = new LivrosDAO();
-        return await livroDAO.consultar(this)
+        return await livroDAO.consultar()
     }
 
 
