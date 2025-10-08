@@ -140,7 +140,12 @@ export default class Cliente {
 
      async consultar(){
         const clienteDAO = new ClienteDAO();
-        return await clienteDAO.consultar(this);
+        return await clienteDAO.consultar();
+     }
+
+     async consultarPorCPF(cpf){
+        const clienteDAO = new ClienteDAO();
+        return await clienteDAO.consultar(cpf);
      }
 
 

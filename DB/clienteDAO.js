@@ -91,7 +91,7 @@ export default class ClienteDAO {
         registro.cli_email
     );
 
-    const espera = new listaEspera(
+    const espera = new ListaEspera(
         registro.list_id,
         cliente,
         registro.liv_id,
@@ -101,6 +101,45 @@ export default class ClienteDAO {
     listaEspera.push(espera);
 
   } 
+
+  return listaEspera;
+}
+
+async consultarPorCPF(cpf) {
+  const conexao = await conectar();
+  const sql = `
+    SELECT 
+        c.cli_cpf,
+        c.cli_nome,
+        c.cli_email,
+        l.list_id,
+        l.liv_id,
+        l.list_data_interesse
+    FROM clientes c
+    INNER JOIN lista_espera l ON c.cli_cpf = l.cli_cpf
+    WHERE c.cli_cpf = ?
+  `;
+  
+  const [registros] = await conexao.query(sql, [cpf]);
+  await conexao.release();
+
+  let listaEspera = [];
+  for (const registro of registros) {
+    const cliente = new Cliente(
+      registro.cli_cpf,
+      registro.cli_nome,
+      registro.cli_email
+    );
+
+    const espera = new ListaEspera(   // 👈 use "ListaEspera" (classe) e não "listaEspera"
+      registro.list_id,
+      cliente,
+      registro.liv_id,
+      registro.list_data_interesse
+    );
+
+    listaEspera.push(espera);
+  }
 
   return listaEspera;
 }
